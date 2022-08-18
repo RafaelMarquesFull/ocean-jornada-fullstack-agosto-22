@@ -32,7 +32,7 @@ async function main() {
   app.use(express.json());
 
   app.get("/", function (req, res) {
-    res.send("Hello, World!");
+    res.send("Olá Rafa");
   });
 
   app.get("/oi", function (req, res) {
