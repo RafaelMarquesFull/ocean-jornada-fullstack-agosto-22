@@ -1,9 +1,10 @@
-const express = require("express");
-const { MongoClient } = require("mongodb");
+const express = require('express');
+const { MongoClient } = require('mongodb');
 
 //const url = "mongodb://localhost:27017";
-const url = "mongodb+srv://rafaeladmin:ivK5Ljqr2sM83YzO@cluster0.6xaoqoq.mongodb.net/?retryWrites=true&w=majority";
-const dbName = "jornada-fullstack-agosto-22";
+const url =
+  'mongodb+srv://rafaeladmin:ivK5Ljqr2sM83YzO@cluster0.6xaoqoq.mongodb.net/?retryWrites=true&w=majority';
+const dbName = 'jornada-fullstack-agosto-22';
 
 // Declaração da função main()
 async function main() {
@@ -15,13 +16,13 @@ async function main() {
   //  Promises do JavaScript, que permitem aguardar
   //  esse tempo. Para isso, vamos usar o async/await.
 
-  console.log("Conectando com o banco de dados...");
+  console.log('Conectando com o banco de dados...');
 
   const client = await MongoClient.connect(url);
   const db = client.db(dbName);
-  const collection = db.collection("pontuacoes");
+  const collection = db.collection('pontuacoes');
 
-  console.log("Banco de dados conectado com sucesso!");
+  console.log('Banco de dados conectado com sucesso!');
 
   const app = express();
 
@@ -29,12 +30,12 @@ async function main() {
   // JSON no body das requisições
   app.use(express.json());
 
-  app.get("/", function (req, res) {
-    res.send("Olá Rafa");
+  app.get('/', function (req, res) {
+    res.send('Olá Rafa');
   });
 
-  app.get("/oi", function (req, res) {
-    res.send("Olá, mundo!");
+  app.get('/oi', function (req, res) {
+    res.send('Olá, mundo!');
   });
 
   // Nosso backend armazena as pontuações das jogadas
@@ -59,7 +60,7 @@ async function main() {
   // ];
 
   // Endpoint READ ALL - [GET] /pontuacoes
-  app.get("/pontuacoes", async function (req, res) {
+  app.get('/pontuacoes', async function (req, res) {
     const itens = await collection
       .find()
       .sort({ pontos: -1 })
@@ -70,7 +71,7 @@ async function main() {
   });
 
   // Endpoint CREATE - [POST] /pontuacoes
-  app.post("/pontuacoes", async function (req, res) {
+  app.post('/pontuacoes', async function (req, res) {
     // Peguei o item do corpo da requisição
     const item = req.body;
     // console.log(item);
