@@ -1,0 +1,14 @@
+.HighScore {
+  position: absolute;
+
+  top: 5%;
+  left: 33%;
+  width: calc(40% - 1rem - 1rem);
+  height: calc(50% - 1rem - 1rem);
+
+  background: rgba(56, 56, 56, 0.767);
+  padding: 1rem;
+  border-radius: 10%;
+  color: white;
+  text-align: center;
+}
